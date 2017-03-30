@@ -11,13 +11,17 @@
 <body>
 	<div id="big_wrapper">
 
-	<header id="header">GADGET INVENTORY TEST</header>
+
+	<header id="header">Gadget Inventory!</header>
+	<!-- Displaying the navigation bar -->
 	<nav id="navigation">
 		<ul>Home</ul>
                 <ul>About</ul>
-                <ul>Contact</ul>
-                <ul>Gadgets</ul>
+                <ul>NEW-Contact</ul>
+                <ul>NEW-Gadgets</ul>
 	</nav>
+
+<!-- Establishing a connection to the sql database -->
 <?php
 
 	require_once('databaseConnection.php');
@@ -28,31 +32,23 @@
 	else $G = $dbc->getGadget(1);
 
 ?>
-        <aside id="left_side">
-                <ul><b>Type </b><br/><p><?php echo $G->getName(); ?></p></ul>
-                <ul><b>Manufacturer </b><br/><p><?php echo $G->getManufacturer(); ?></p></ul>
-                <ul><b>Cost </b><br/><p><?php echo $G->getCost(); ?><p></ul>
-                <ul><b>Amazon </b><br/><a href="<?php $G->getLink(); ?>"><?php echo $G->getModel(); ?></a></ul>
+	<!-- The right side bar's data -->
+    <aside id="left_side">
+        <ul><b>Type </b><br/><p><?php echo $G->getName(); ?></p></ul>
+        <ul><b>Manufacturer </b><br/><p><!-- Add call to getManufacturer method here --></p></ul>
+        <ul><b>Cost </b><br/><p><!-- Add call to getCost method here --><p></ul>
+        <ul><b>Amazon </b><br/><a href="<?php $G->getLink(); ?>"><?php echo $G->getModel(); ?></a></ul>
+    </aside>
 
-        </aside>
-
-        <aside id="right_side">
-                <ul>1</ul>
-                <ul>2</ul>
-                <ul>3</ul>
-                <ul>4</ul>
-                <ul>5</ul>
-
-        </aside>
-
+	<!-- Displaying the main image -->
 	<section id="gadget">
-<?php
+		<?php
 
-echo '<img src="./Resources/';
-echo $G->getImageName();
-echo '">';
-?>
+			echo '<img src="./Resources/';
+			echo $G->getImageName();
+			echo '">';
 
+		?>
 	</section>
 
 	<section id="icons">
@@ -62,12 +58,7 @@ echo '">';
 		</div>
 	</section>
 
-
 	</div>
-
-
-
-
 
 </body>
 

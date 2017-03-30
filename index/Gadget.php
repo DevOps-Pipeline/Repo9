@@ -11,91 +11,137 @@ class Gadget {
     private $link;
 	private $imgName;
 	private $icon;
-	public function __construct($it, $n, $mod, $co, $brand, $link, $image, $iconName){
-		$this->item = $it;
-		$this->name = $n;
-		$this->model = $mod;
-		$this->cost = $co;
-		$this->manufacturer = $brand;
-		$this->link = $link;
-		$this->icon = $iconName;
-		$this->imgName = $image;
-	}
 
-	public function fileContent($num)
+	/** Creating a gadget with the different parameters */
+	public function __construct($item, $name, $model, $cost, $manufacturer, $link, $imgName, $icon)
 	{
-		$tempArray = array();
-		$temp = file_get_contents('gadgetinfo.txt');
-		$tempArray = explode("|", $temp);
-		return $tempArray[$num];
+
+		$this->setItem($item);
+		$this->setName($name);
+		$this->setModel($model);
+		$this->setCost($cost);
+		$this->setManufacturer($manufacturer);
+		$this->setLink($link);
+		$this->setImageName($imgName);
+		$this->setIcon($icon);
+
 	}
 
-	public function getField($num)
+	/** Sets the item ID of the gadget */
+	public function setItem($item)
 	{
-		$fieldArray = array();
-		$temp = $this->fileContent($this->item);
-		$fieldArray = explode(";", $temp);
-		return $fieldArray[$num];
+
+		$this->item = $item;
+
 	}
 
+	/** Sets the name of the gadget */
+	public function setName($name)
+	{
 
-       	public function setName(){
-		$this->name = $this->getField(0);
+		$this->name = $name;
+
 	}
 
-     	public function setManufacturer(){
-                $this->manufacturer = $this->getField(1);
-        }
+	/** Sets the model of the gadget */
+    public function setModel($model)
+	{
 
-	public function setCost(){
-                $this->cost =  $this->getField(2);
-        }
+	       	$this->model = $model;
 
+	}
 
-        public function setModel(){
-               	$this->model = $this->getField(3);
-       	}
+	/** Sets the cost of the gadget */
+	public function setCost($cost)
+	{
 
+	        $this->cost =  $cost;
 
-	public function setSpecifications(){
-               	$this->specifications = $this->getField(4);
-       	}
+	}
 
-        public function getName(){
-               return $this->name;
-        }
+	/** Sets the manufacturer of the gadget */
+ 	public function setManufacturer($manufacturer)
+	{
 
-       	public function getModel(){
-                return $this->model;
-        }
+	        $this->manufacturer = $manufacturer;
 
-       	public function getCost(){
-                return $this->cost;
-        }
+	}
 
-        public function getManufacturer(){
-                return $this->manufacturer;
-        }
+	/** Sets the link of the gadget */
+	public function setLink($link)
+	{
 
-		public function getLink(){
-                return $this->link;
-        }
+	    	$this->link = $link;
 
-		public function getItem(){
-                return $this->item;
-        }
+	}
 
-		public function getImageName(){
-                return $this->imgName;
-        }
+	/** Sets the image name of the gadget */
+	public function setImageName($imgName)
+	{
 
-		public function getIcon(){
-                return $this->icon;
-        }
+	    	$this->imgName = $imgName;
 
+	}
+
+	/** Sets the icon of the gadget */
+	public function setIcon($icon)
+	{
+
+	    	$this->icon = $icon;
+
+	}
+
+	/** Returns the name of the gadget */
+    public function getName()
+	{
+
+			return $this->name;
+
+	}
+
+	/** Returns the model of the gadget */
+   	public function getModel()
+	{
+
+	    	return $this->model;
+
+	}
+
+	/** Add the getCost method below */
+
+	/** Add the getManufacturer method below */
+
+	/** Returns the link of the gadget */
+	public function getLink()
+	{
+
+	    	return $this->link;
+
+	}
+
+	/** Returns the item ID of the gadget */
+	public function getItem()
+	{
+
+	        return $this->item;
+
+	}
+
+	/** Returns the image name of the gadget */
+	public function getImageName()
+	{
+
+	        return $this->imgName;
+
+	}
+
+	/** Returns the icon of the gadget */
+	public function getIcon()
+	{
+
+	        return $this->icon;
+
+	}
 
 }
-
-
-
 ?>
